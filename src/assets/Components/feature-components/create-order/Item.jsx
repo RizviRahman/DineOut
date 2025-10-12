@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export default function Item({item}) {
-    console.log(item);
+    // console.log(item);
     const {name, price, image} = item;
     const [quantity, setQuantity] = useState(0);
     // setQuantity(quantity+1)

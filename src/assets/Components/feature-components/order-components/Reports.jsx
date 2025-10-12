@@ -1,4 +1,5 @@
-export default function Reports(){
+export default function Reports({data}){
+    
     return (
         <div>
                     <div className="flex justify-between">
@@ -17,7 +18,7 @@ export default function Reports(){
                         <div className="reports-container">
                             <table className="min-w-full">
                                 <thead>
-                                    <tr className="text-left text-sm">
+                                    <tr className="text-left text-sm ">
                                         <th className="pb-3 font-medium">ID</th>
                                         <th className="pb-3 font-medium">Customer Name</th>
                                         <th className="pb-3 font-medium">Items</th>
@@ -28,123 +29,21 @@ export default function Reports(){
                                 </thead>
                                 <tbody className="text-sm">
                                     {/* Row 1 */}
-                                    <tr className="border-t border-gray-700">
-                                        <td className="py-3">21</td>
-                                        <td className="py-3">Sumit Saha</td>
-                                        <td className="py-3">5</td>
-                                        <td className="py-3">123123</td>
-                                        <td className="py-3"><span className="text-red-500">PENDING</span></td>
+                                    {data.map((order_rep) => (                                                        
+                                    <tr key={order_rep.id} className="border-t border-gray-700">
+                                        <td className="py-3">{order_rep.id}</td>
+                                        <td className="py-3">{order_rep.name}</td>
+                                        <td className="py-3">{order_rep.items}</td>
+                                        <td className="py-3">{order_rep.amount}</td>
+                                        <td className="py-3"><span className={order_rep.status==="DELIVERED"? "text-green-500": "text-red-500"}>{order_rep.status}</span></td>
                                         <td className="py-3">
                                             <button
                                                 className="bg-gray-800 hover:bg-red-600 text-xs px-3 py-1 rounded-full mr-1 transition-colors duration-300">Delete</button>
-                                            <button
-                                                className="bg-gray-800 hover:bg-green-600 text-xs px-3 py-1 rounded-full transition-colors duration-300">DELIVER</button>
+                                            {order_rep.status!="DELIVERED"&&<button
+                                                className="bg-gray-800 hover:bg-green-600 text-xs px-3 py-1 rounded-full transition-colors duration-300">DELIVER</button>}
                                         </td>
                                     </tr>
-
-                                    {/* Row 2 */}
-                                    <tr className="border-t border-gray-700">
-                                        <td className="py-3">21</td>
-                                        <td className="py-3">Akash Ahmed</td>
-                                        <td className="py-3">5</td>
-                                        <td className="py-3">123123</td>
-                                        <td className="py-3"><span className="text-green-500">DELIVERED</span></td>
-                                        <td className="py-3">
-                                            <button
-                                                className="bg-gray-800 hover:bg-red-600 text-xs px-3 py-1 rounded-full mr-1 transition-colors duration-300">Delete</button>
-                                           
-                                        </td>
-                                    </tr>
-
-                                    {/* Row 3 */}
-                                    <tr className="border-t border-gray-700">
-                                        <td className="py-3">21</td>
-                                        <td className="py-3">Saad Hasan</td>
-                                        <td className="py-3">5</td>
-                                        <td className="py-3">123123</td>
-                                        <td className="py-3"><span className="text-red-500">PENDING</span></td>
-                                        <td className="py-3">
-                                            <button
-                                                className="bg-gray-800 hover:bg-red-600 text-xs px-3 py-1 rounded-full mr-1 transition-colors duration-300">Delete</button>
-                                            <button
-                                                className="bg-gray-800 hover:bg-green-600 text-xs px-3 py-1 rounded-full transition-colors duration-300">DELIVER</button>
-                                        </td>
-                                    </tr>
-
-                                    {/* Row 4 */}
-                                    <tr className="border-t border-gray-700">
-                                        <td className="py-3">21</td>
-                                        <td className="py-3">MD Salahuddin</td>
-                                        <td className="py-3">5</td>
-                                        <td className="py-3">123123</td>
-                                        <td className="py-3"><span className="text-red-500">PENDING</span></td>
-                                        <td className="py-3">
-                                            <button
-                                                className="bg-gray-800 hover:bg-red-600 text-xs px-3 py-1 rounded-full mr-1 transition-colors duration-300">Delete</button>
-                                            <button
-                                                className="bg-gray-800 hover:bg-green-600 text-xs px-3 py-1 rounded-full transition-colors duration-300">DELIVER</button>
-                                        </td>
-                                    </tr>
-
-                                    {/* Row 5 */}
-                                    <tr className="border-t border-gray-700">
-                                        <td className="py-3">21</td>
-                                        <td className="py-3">Ferdous</td>
-                                        <td className="py-3">5</td>
-                                        <td className="py-3">123123</td>
-                                        <td className="py-3"><span className="text-red-500">PENDING</span></td>
-                                        <td className="py-3">
-                                            <button
-                                                className="bg-gray-800 hover:bg-red-600 text-xs px-3 py-1 rounded-full mr-1 transition-colors duration-300">Delete</button>
-                                            <button
-                                                className="bg-gray-800 hover:bg-green-600 text-xs px-3 py-1 rounded-full transition-colors duration-300">DELIVER</button>
-                                        </td>
-                                    </tr>
-
-                                    {/* Row 6 */}
-                                    <tr className="border-t border-gray-700">
-                                        <td className="py-3">21</td>
-                                        <td className="py-3">Rafe</td>
-                                        <td className="py-3">5</td>
-                                        <td className="py-3">123123</td>
-                                        <td className="py-3"><span className="text-red-500">PENDING</span></td>
-                                        <td className="py-3">
-                                            <button
-                                                className="bg-gray-800 hover:bg-red-600 text-xs px-3 py-1 rounded-full mr-1 transition-colors duration-300">Delete</button>
-                                            <button
-                                                className="bg-gray-800 hover:bg-green-600 text-xs px-3 py-1 rounded-full transition-colors duration-300">DELIVER</button>
-                                        </td>
-                                    </tr>
-
-                                    {/* Row 7 */}
-                                    <tr className="border-t border-gray-700">
-                                        <td className="py-3">21</td>
-                                        <td className="py-3">Sarwar</td>
-                                        <td className="py-3">5</td>
-                                        <td className="py-3">123123</td>
-                                        <td className="py-3"><span className="text-red-500">PENDING</span></td>
-                                        <td className="py-3">
-                                            <button
-                                                className="bg-gray-800 hover:bg-red-600 text-xs px-3 py-1 rounded-full mr-1 transition-colors duration-300">Delete</button>
-                                            <button
-                                                className="bg-gray-800 hover:bg-green-600 text-xs px-3 py-1 rounded-full transition-colors duration-300">DELIVER</button>
-                                        </td>
-                                    </tr>
-
-                                    {/* Row 8 */}
-                                    <tr className="border-t border-gray-700">
-                                        <td className="py-3">21</td>
-                                        <td className="py-3">Obaidul</td>
-                                        <td className="py-3">5</td>
-                                        <td className="py-3">123123</td>
-                                        <td className="py-3"><span className="text-red-500">PENDING</span></td>
-                                        <td className="py-3">
-                                            <button
-                                                className="bg-gray-800 hover:bg-red-600 text-xs px-3 py-1 rounded-full mr-1 transition-colors duration-300">Delete</button>
-                                            <button
-                                                className="bg-gray-800 hover:bg-green-600 text-xs px-3 py-1 rounded-full transition-colors duration-300">DELIVER</button>
-                                        </td>
-                                    </tr>
+                                    ))}
                                 </tbody>
                             </table>
                         </div>
