@@ -1,10 +1,23 @@
 import { useState } from "react";
 
-export default function Item({item}) {
+export default function Item({item, calculateTotal}){ 
     // console.log(item);
     const {name, price, image} = item;
     const [quantity, setQuantity] = useState(0);
     // setQuantity(quantity+1)
+
+    function handleAdd(e){
+        e.preventDefault();
+        setQuantity(quantity+1);
+        calculateTotal({price:price, quantity:1});
+    }
+
+    function handleRemove(e){
+        e.preventDefault();
+        setQuantity(quantity-1);
+        calculateTotal({price:price, quantity:-1});
+    }
+
     return (
         <div className="bg-gray-700 bg-opacity-30 rounded-md p-3 mb-3 flex justify-between items-center hover:bg-opacity-40 transition-all duration-300">
             <div className="flex items-center">
@@ -24,7 +37,7 @@ export default function Item({item}) {
             </div>
             <div className="flex items-center">
                 {quantity>0 &&
-                <button onClick={()=>setQuantity(quantity-1)}
+                <button onClick={handleRemove}
                     className="w-8 h-8 bg-gray-800 hover:bg-primary rounded-full flex items-center justify-center transition-colors duration-300 mr-2">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-red-500" viewBox="0 0 20 20"
                         fill="currentColor">
@@ -32,7 +45,7 @@ export default function Item({item}) {
                             clipRule="evenodd" />
                     </svg>
                 </button>}
-                <button onClick={()=>setQuantity(quantity+1)}
+                <button onClick={handleAdd}
                     className="w-8 h-8 bg-gray-800 hover:bg-primary rounded-full flex items-center justify-center transition-colors duration-300">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500"
                         viewBox="0 0 20 20" fill="currentColor">

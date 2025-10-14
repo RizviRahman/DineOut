@@ -1,4 +1,4 @@
-export default function Reports({data}){
+export default function Reports({data, updateOrderStatus, deleteOrder}) {
     
     return (
         <div>
@@ -38,8 +38,10 @@ export default function Reports({data}){
                                         <td className="py-3"><span className={order_rep.status==="DELIVERED"? "text-green-500": "text-red-500"}>{order_rep.status}</span></td>
                                         <td className="py-3">
                                             <button
+                                                onClick={() => deleteOrder(order_rep.id)}
                                                 className="bg-gray-800 hover:bg-red-600 text-xs px-3 py-1 rounded-full mr-1 transition-colors duration-300">Delete</button>
                                             {order_rep.status!="DELIVERED"&&<button
+                                                onClick={() => updateOrderStatus(order_rep.id)}
                                                 className="bg-gray-800 hover:bg-green-600 text-xs px-3 py-1 rounded-full transition-colors duration-300">DELIVER</button>}
                                         </td>
                                     </tr>
