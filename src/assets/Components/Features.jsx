@@ -4,12 +4,13 @@ import { items, orders_data } from "./data";
 import { useState } from "react";
 
 export default function Features() {
-    const [item_list, setItemList] = useState(items);
+    // const [item_list, setItemList] = useState(items);
     const [orders_list, setOrdersList] = useState(orders_data);
 
     function addOrder(newOrder) {
-        newOrder.id = orders_list[orders_list.length-1].id + 1;
-        setOrdersList([...orders_list, newOrder]);
+        orders_list.sort((a, b) => b.id - a.id);
+        newOrder.id = orders_list[0].id + 1;
+        setOrdersList([newOrder, ...orders_list]);
     }
 
     function updateOrderStatus(OrderId) {
@@ -17,7 +18,7 @@ export default function Features() {
         const toUpdateOrder = orders_list.find(order => order.id === OrderId);
         toUpdateOrder.status="DELIVERED"
         newOrder.push(toUpdateOrder);
-        newOrder.sort((a, b) => a.id - b.id);
+        newOrder.sort((a, b) => b.id - a.id);
         setOrdersList([...newOrder]);
     }
 
@@ -29,7 +30,7 @@ export default function Features() {
     return (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6 flex-grow">
             {/* Create Order Section */}
-            <CreateOrder items={item_list} addOrder={addOrder}/>
+            <CreateOrder items={items} addOrder={addOrder}/>
 
             {/* Order Summary and Reports Section */}
             <Orders orders_data={orders_list} updateOrderStatus={updateOrderStatus} deleteOrder={deleteOrder}/>

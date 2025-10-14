@@ -13,16 +13,23 @@ import { useState } from "react";
 export default function CreateOrder({items, addOrder}) {
     const [priceDetails, setPriceDetails] = useState({price:0, quantity:0});
     const [customerName, setCustomerName] = useState("");
+    const [resetToken, setResetToken] = useState(0);
 
     function handleSubmit(e) {
         e.preventDefault();
         addOrder({name:customerName.trim(), items:priceDetails.quantity, amount:priceDetails.price, status:"PENDING"})
         alert(`${customerName.trim()}, your order Placed Successfully!\nTotal: BDT ${priceDetails.price}`);
+        // reset form and child item components (remount via key)
+        setCustomerName("");
+        setPriceDetails({ price: 0, quantity: 0 });
+        setResetToken((t) => t + 1);
     }
 
     function calculateTotal({price, quantity}){
-        setPriceDetails({price: priceDetails.price + (price*quantity), quantity: priceDetails.quantity + quantity});
-        // (prev) => prev + amount
+        setPriceDetails((prev) => ({
+            price: prev.price + price * quantity,
+            quantity: prev.quantity + quantity,
+        }));
     }
 
     return (
@@ -47,7 +54,7 @@ export default function CreateOrder({items, addOrder}) {
                     <label className="block text-sm font-medium mb-2">Choose Items</label>
                     <div className="items-container">
                         {items.map((item) => (
-                            <Item key={item.id} item={item} calculateTotal={calculateTotal}/>
+                            <Item key={`${item.id}-${resetToken}`} item={item} calculateTotal={calculateTotal} />
                         ))}
                     </div>
                 </div>
