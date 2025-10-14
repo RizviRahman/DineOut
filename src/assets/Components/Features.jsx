@@ -8,6 +8,11 @@ export default function Features() {
     const [orders_list, setOrdersList] = useState(orders_data);
 
     function addOrder(newOrder) {
+        if(orders_list.length===0){
+            newOrder.id=1;
+            setOrdersList([newOrder]);
+            return;
+        }
         orders_list.sort((a, b) => b.id - a.id);
         newOrder.id = orders_list[0].id + 1;
         setOrdersList([newOrder, ...orders_list]);

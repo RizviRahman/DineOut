@@ -13,10 +13,12 @@ const orders_data = [
         {id:2, name:"Akash Ahmed", items:5, amount:1200, status:"DELIVERED"},
         {id:3, name:"Saad Hasan", items:2, amount:500, status:"PENDING"},
         {id:4, name:"MD Salahuddin", items:2, amount:200, status:"PENDING"},
-        {id:5, name:"Ferdous", items:6, amount:1700, status:"PENDING"},
-        {id:6, name:"Rafe", items:4, amount:1200, status:"DELIVERED"},
-        {id:7, name:"Sarwar", items:1, amount:100, status:"PENDING"},
-        {id:8, name:"Obaidul", items:1, amount:300, status:"PENDING"},
+        {id:5, name:"Ferdous Jahan", items:6, amount:1700, status:"PENDING"},
+        {id:6, name:"Rony", items:4, amount:1200, status:"DELIVERED"},
+        {id:7, name:"Sarwar Islam", items:1, amount:100, status:"PENDING"},
+        {id:8, name:"Obaidul Haque", items:1, amount:300, status:"PENDING"},
+        {id:9, name:"Rafsan Jani", items:3, amount:800, status:"DELIVERED"},
+        {id:10, name:"Sabbir Rahman", items:2, amount:400, status:"DELIVERED"},
     ]
 
 
