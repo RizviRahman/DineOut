@@ -2,8 +2,9 @@ const items = [
         { id: 1, name: "Hamburger", price: 100, image: "./assets/hamburger.svg" },
         { id: 2, name: "Pizza", price: 200, image: "./assets/pizza.svg" },
         { id: 3, name: "Chicken Nuggets", price: 300, image: "./assets/chicken.svg" },
-        { id: 4, name: "Submarine Sandwich", price: 300, image: "./assets/submarine.svg" },
+        { id: 4, name: "Sub Sandwich", price: 300, image: "./assets/submarine.svg" },
         { id: 5, name: "Steak", price: 800, image: "./assets/steak.svg" },
+        { id: 6, name: "Rice Bowl", price: 150, image: "./assets/rice-bowl.svg" },
     ];
 
 

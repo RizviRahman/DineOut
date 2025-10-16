@@ -1,17 +1,32 @@
-// import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
 import './assets/App.css'
 import Features from './assets/Components/Features'
 import NavBar from './assets/Components/NavBar'
+import Login from './assets/Components/Login'
+import { useState } from 'react'
 
 function App() {
-  // const [count, setCount] = useState(0)
+  const [user, setUser] = useState(null)
+
+  function handleLogin(userData) {
+    // In a real app validate credentials; here we accept any non-empty username
+    setUser(userData)
+  }
+
+  function handleLogout() {
+    setUser(null)
+  }
 
   return (
     <>
-      <NavBar />
-      <Features />
+      <NavBar user={user} onLogout={handleLogout} />
+      {user ? (
+        // Dashboard area: reuse Features which contains CreateOrder and Orders
+        <div className="px-6">
+          <Features />
+        </div>
+      ) : (
+        <Login onLogin={handleLogin} />
+      )}
     </>
   )
 }

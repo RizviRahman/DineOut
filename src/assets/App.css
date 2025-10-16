@@ -1,0 +1,72 @@
+/* Login / Landing styles moved from index.css */
+
+/* Glassmorphism card used on login landing */
+.glass-card {
+	background: rgba(255,255,255,0.03);
+	border: 1px solid rgba(255,255,255,0.04);
+	backdrop-filter: blur(6px);
+	-webkit-backdrop-filter: blur(6px);
+	transition: transform .18s ease, box-shadow .18s ease;
+}
+.glass-card:hover {
+	transform: translateY(-6px);
+	box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+.glass-img { width: 48px; height: 48px; object-fit: contain }
+
+/* Landing cluster removed - not used. Previously provided overlapping tilted tiles.
+   Keep carousel styles below which are used by the login page. */
+
+/* Arc layout removed - not used. Keep archive here in App.css if you want to re-enable later. */
+
+/* 3D rotating carousel for landing cards */
+.carousel-container{
+	width:100%;
+	height:420px;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	perspective: 1200px;
+}
+.carousel{
+	width: 360px; /* stage width, adjust as needed */
+	height: 320px;
+	position: relative;
+	overflow: visible;
+	perspective-origin: center center;
+}
+.carousel__stage{
+	width:100%;
+	height:100%;
+	position: absolute;
+	left: 50%; top: 50%;
+	transform: translate(-50%, -50%);
+	transform-style: preserve-3d;
+	transition: transform .6s;
+	/* stage rotates to create the carousel effect; translate stays fixed so stage doesn't shift */
+	animation: carousel-spin var(--spin-duration, 18s) linear infinite;
+}
+.carousel__cell{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform-style: preserve-3d;
+}
+.carousel__cell .glass{
+  /* Face inside the cell uses glass visuals; translate centers the face over the cell origin */
+  position: relative;
+  transform: translate(-50%, -50%);
+}
+.carousel__cell .glass:hover{
+  /* slight lift and stronger shadow on hover to indicate interactivity */
+  transform: translate(-50%, -60%) scale(1.02);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.45);
+  z-index: 999;
+}
+.carousel:hover .carousel__stage{ animation-play-state: paused; }
+
+@keyframes carousel-spin{
+	from{ transform: translate(-50%, -50%) rotateY(0deg); }
+	to{ transform: translate(-50%, -50%) rotateY(-360deg); }
+}
+
