@@ -32,7 +32,7 @@ These steps assume you have Node.js (16+) and Git installed.
 1. Clone the repository
 
 ```powershell
-git clone https://github.com/<your-username>/DineOut.git
+git clone https://github.com/RizviRahman/DineOut.git
 cd DineOut
 ```
 
@@ -80,10 +80,4 @@ npm run preview
 
 ---
 
-If you'd like, I can:
-- Add localStorage persistence so orders survive page reloads.
-- Add a minimal mock auth backend or JWT flow.
-- Add screenshots or a short demo GIF to this README.
-
-Would you like me to add persistence (localStorage) next?
 
