@@ -5,6 +5,7 @@ const items = [
         { id: 4, name: "Sub Sandwich", price: 300, image: "./assets/submarine.svg" },
         { id: 5, name: "Steak", price: 800, image: "./assets/steak.svg" },
         { id: 6, name: "Rice Bowl", price: 150, image: "./assets/rice-bowl.svg" },
+        { id: 7, name: "Lemonade", price: 80, image: "./assets/lemonade.svg" },
     ];
 
 

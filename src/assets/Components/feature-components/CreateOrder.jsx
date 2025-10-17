@@ -33,7 +33,7 @@ export default function CreateOrder({items, addOrder}) {
     }
 
     return (
-        <div className="bg-cardbg rounded-lg p-6 h-[calc(100vh_-_130px)]">
+        <div className="bg-cardbg rounded-lg p-6 h-[calc(100vh_-_145px)]">
             <h2 className="text-xl font-bold mb-1">CREATE ORDER</h2>
             <p className="text-gray-400 text-sm mb-4">Accurately fulfill customer orders based on a precise
                     understanding of their requirements.</p>
@@ -63,7 +63,7 @@ export default function CreateOrder({items, addOrder}) {
                 <button
                     disabled={priceDetails.price===0 || customerName.trim()===""}
                     type="submit"
-                    className="w-full bg-primary hover:bg-opacity-90 text-white font-medium py-3 rounded-full transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1">
+                    className="w-full bg-primary hover:bg-opacity-90 text-white font-medium py-3 rounded-full transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1 mt-3">
                     Place Order (BDT {priceDetails.price})
                 </button>
             </form>

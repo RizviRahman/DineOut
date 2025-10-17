@@ -28,22 +28,24 @@ export default function Reports({data, updateOrderStatus, deleteOrder}) {
             </div>
             <div className="bg-cardbg rounded-lg p-4">
                 <div className="reports-container">
-                    <table className="min-w-full">
+                    <table className="min-w-full ">
+                    {/* <table className="relative w-full border"> */}
+
                         <thead>
-                            <tr className="text-left text-sm ">
-                                <th className="pb-3 font-medium">ID</th>
-                                <th className="pb-3 font-medium">Customer Name</th>
-                                <th className="pb-3 font-medium">Items</th>
-                                <th className="pb-3 font-medium">Amount</th>
-                                <th className="pb-3 font-medium">Status</th>
-                                <th className="pb-3 font-medium">Action</th>
+                            <tr className="sticky top-0 text-left text-sm bg-gray-800 bg-opacity-80">
+                                <th className="py-3 pl-3 font-medium-bold ">ID</th>
+                                <th className="py-3 font-medium-bold">Customer Name</th>
+                                <th className="py-3 font-medium-bold">Items</th>
+                                <th className="py-3 font-medium-bold">Amount</th>
+                                <th className="py-3 font-medium-bold">Status</th>
+                                <th className="py-3 font-medium-bold">Action</th>
                             </tr>
                         </thead>
                         <tbody className="text-sm">
                             {/* Row 1 */}
                             {filteredData.map((order_rep) => (                                                        
                             <tr key={order_rep.id} className="border-t border-gray-700">
-                                <td className="py-3">{order_rep.id}</td>
+                                <td className="py-3 pl-3">{order_rep.id}</td>
                                 <td className="py-3">{order_rep.name}</td>
                                 <td className="py-3">{order_rep.items}</td>
                                 <td className="py-3">{order_rep.amount}</td>

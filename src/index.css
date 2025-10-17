@@ -39,4 +39,41 @@
 
         select {
             appearance: none;
+            accent-color: #FF602C;
+            background-color: #1D1D1D;
+            min-width: 100px;
+            border: none;
+            outline: none;
+            border-radius: 10px;
+            padding: 4px;
         }
+
+        .items-container {
+            max-height: 450px;
+            overflow-y: auto;
+        }
+
+        .reports-container {
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(89, 86, 86, 0.2);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 96, 44, 0.5);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 96, 44, 0.8);
+        }
+        
