@@ -1,0 +1,88 @@
+/* Admin Dashboard custom rules (Tailwind covers most utilities) */
+.glass-card {
+	background: rgba(255,255,255,0.03);
+	border: 1px solid rgba(255,255,255,0.04);
+	backdrop-filter: blur(6px);
+	-webkit-backdrop-filter: blur(6px);
+	border-radius: 8px;
+	/* max-height: 375px;
+	overflow-y: auto; */
+}
+
+.item-list-form{
+	max-height: 120px;
+	overflow-y: auto;
+}
+
+.moderator-list-form{
+	max-height: 120px;
+	overflow-y: auto;
+}
+
+.input {
+	padding: 0.5rem;
+	background: rgba(255,255,255,0.02);
+	border: 1px solid rgba(255,255,255,0.04);
+	color: #e6eef8;
+	border-radius: 6px;
+}
+
+.btn {
+	padding: 0.5rem 0.75rem;
+	border-radius: 6px;
+	background: transparent;
+	border: 1px solid rgba(255,255,255,0.06);
+	color: #e6eef8;
+}
+.btn-primary {
+	padding: 0.3rem;
+	background: #2563eb;
+	border-radius: 6px;
+	border: 1px solid rgba(255,255,255,0.06);
+	color: white;
+}
+
+.simple-chart { 
+  width: 100%; 
+  height: 220px; 
+  display: block; 
+}
+
+.frequency-chart {
+  width: 100%;
+  height: 220px;
+  display: block;
+}
+
+.chart-amount {
+  font-size: 11px;
+  fill: #94a3b8;
+  font-weight: 500;
+}
+
+.chart-quantity {
+  font-size: 14px;
+  fill: #94a3b8;
+  font-weight: 600;
+}
+
+.chart-label {
+  font-size: 14px;
+  fill: #64748b;
+  font-weight: 600;
+}
+
+.chart-bar {
+  transition: filter 0.2s ease;
+  cursor: pointer;
+}
+.chart-bar:hover {
+  filter: brightness(1.2);
+}
+
+.hover-detail {
+  font-size: 11px;
+  fill: #e2e8f0;
+  font-family: monospace;
+}
+

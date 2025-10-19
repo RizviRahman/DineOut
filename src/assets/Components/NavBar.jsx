@@ -7,14 +7,14 @@ export default function NavBar({ user, onLogout }) {
                 </div>
                 <h1 className="text-2xl font-bold"><span className="text-primary">Dine</span>Out</h1>
             </div>
-            <div>
-                {user ? (
-                    <div className="flex items-center gap-4">
-                        <div className="text-sm text-gray-300">{user.username} ({user.role})</div>
-                        <button onClick={onLogout} className="bg-gray-800 text-xs px-3 py-1 rounded">Logout</button>
-                    </div>
-                ) : null}
+            
+        {user ? (
+            <div className="flex items-center gap-4">
+                <div className="text-sm text-gray-300">{user.username} ({user.role})</div>
+                <button onClick={onLogout} className="bg-gray-800 text-xs px-3 py-1 rounded">Logout</button>
             </div>
+        ) : null}
+            
         </nav>
     )
 }

@@ -3,6 +3,7 @@ import Features from './assets/Components/Features'
 import NavBar from './assets/Components/NavBar'
 import Login from './assets/Components/Login'
 import { useState } from 'react'
+import AdminDashboard from './assets/Components/Admin-Dashboard/AdminDashboard'
 
 function App() {
   const [user, setUser] = useState(null)
@@ -19,12 +20,12 @@ function App() {
   return (
     <>
       <NavBar user={user} onLogout={handleLogout} />
-      {user ? (
+      {user ? ((user.role==="admin")?<AdminDashboard/>:(
         // Dashboard area: reuse Features which contains CreateOrder and Orders
         <div className="px-6">
           <Features />
         </div>
-      ) : (
+      )) : (
         <Login onLogin={handleLogin} />
       )}
     </>
