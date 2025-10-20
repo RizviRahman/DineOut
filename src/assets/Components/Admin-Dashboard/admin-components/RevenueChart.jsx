@@ -1,4 +1,4 @@
-import SimpleLineChart from './SimpleLineChart';
+import SimpleBarChart from './SimpleBarChart';
 
 export default function RevenueChart({ data, months, selectedMonth, setSelectedMonth }) {
   return (
@@ -6,7 +6,7 @@ export default function RevenueChart({ data, months, selectedMonth, setSelectedM
       <h2 className="text-lg font-semibold mb-3">
         Revenue {selectedMonth !== null ? `(${months[selectedMonth]})` : '(last 12 months)'}
       </h2>
-      <SimpleLineChart 
+      <SimpleBarChart 
         data={data}
         months={months}
         selectedBar={selectedMonth}

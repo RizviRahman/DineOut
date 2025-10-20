@@ -63,7 +63,7 @@ const monthlyData = [
   { month: 'May', revenue: 1800, items: [
     { name: "Hamburger", count: 50 },
     { name: "Pizza", count: 63 },
-    { name: "Chicken Nuggets", count: 29 },
+    { name: "Chicken Nuggets", count: 2 },
     { name: "Sub Sandwich", count: 21 },
     { name: "Steak", count: 23 },
     { name: "Rice Bowl", count: 32 },
@@ -97,7 +97,7 @@ const monthlyData = [
     { name: "Lemonade", count: 42 }
   ]},
   { month: 'September', revenue: 1850, items: [
-    { name: "Hamburger", count: 51 },
+    { name: "Hamburger", count: 1 },
     { name: "Pizza", count: 65 },
     { name: "Chicken Nuggets", count: 30 },
     { name: "Sub Sandwich", count: 22 },
@@ -128,7 +128,7 @@ const monthlyData = [
     { name: "Pizza", count: 85 },
     { name: "Chicken Nuggets", count: 40 },
     { name: "Sub Sandwich", count: 30 },
-    { name: "Steak", count: 34 },
+    { name: "Steak", count: 3 },
     { name: "Rice Bowl", count: 45 },
     { name: "Lemonade", count: 50 }
   ]}

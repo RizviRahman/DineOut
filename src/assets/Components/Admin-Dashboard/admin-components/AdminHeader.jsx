@@ -1,4 +1,4 @@
-export default function DashboardHeader({ summary }) {
+export default function AdminHeader({ summary }) {
   return (
     <header className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 glass-card p-4">
       <h1 className="text-2xl font-bold">Admin Dashboard</h1>

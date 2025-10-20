@@ -14,7 +14,7 @@ export default function FrequencyChart({ items = [] }) {
   });
 
   return (
-    <svg className="frequency-chart" viewBox={`0 0 ${width+80} ${height}`} width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
+    <svg className="frequency-chart" viewBox={`0 0 ${width+80} ${height+40}`} width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
       <defs>
         <linearGradient id="freqGrad" x1="0" x2="1" y1="0" y2="0">
           <stop offset="0%" stopColor="rgba(59, 187, 246, 0.6)" />

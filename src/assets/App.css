@@ -2,6 +2,12 @@
    Glassmorphism Card Styles
    Used for carousel panels and login landing
    ============================= */
+
+.ordrer-manager{
+    overflow-y: auto;
+}
+
+
 .glass-card {
 	background: rgba(255,255,255,0.03);
 	border: 1px solid rgba(255,255,255,0.04);

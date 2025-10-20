@@ -18,6 +18,9 @@
 	max-height: 120px;
 	overflow-y: auto;
 }
+.admin-dashboard{
+	overflow-y: auto;
+}
 
 .input {
 	padding: 0.5rem;

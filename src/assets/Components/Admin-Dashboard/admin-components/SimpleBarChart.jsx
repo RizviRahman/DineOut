@@ -1,9 +1,10 @@
 import { useState } from 'react';
-export default function SimpleLineChart({ data = [], months = [], selectedBar = null, onBarClick }) {
+export default function SimpleBarChart({ data = [], months = [], selectedBar = null, onBarClick }) {
   const [hoveredBar, setHoveredBar] = useState(null);
   const width = 800, height = 180, padding = 18;
-  const defaultMonths = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-  const labels = months.length >= data.length ? months : defaultMonths;
+  // const defaultMonths = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  // const labels = months.length >= data.length ? months : defaultMonths;
+  const labels = months;
   const max = Math.max(...data, 1);
 
   // Calculate bar width based on available space and data points
@@ -25,8 +26,8 @@ export default function SimpleLineChart({ data = [], months = [], selectedBar = 
           <stop offset="100%" stopColor="rgba(59,130,246,0.2)" />
         </linearGradient>
         <linearGradient id="hoverGrad" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0%" stopColor="rgba(99,102,241,0.8)" />
-          <stop offset="100%" stopColor="rgba(99,102,241,0.3)" />
+          <stop offset="0%" stopColor="rgba(99, 241, 130, 0.8)" />
+          <stop offset="100%" stopColor="rgba(99, 241, 234, 0.3)" />
         </linearGradient>
       </defs>
 
@@ -62,7 +63,7 @@ export default function SimpleLineChart({ data = [], months = [], selectedBar = 
             textAnchor="middle"
             className="chart-label"
           >
-            {labels[i] || ''}
+            {labels[i].slice(0,3) || ''}
           </text>
         </g>
       ))}
