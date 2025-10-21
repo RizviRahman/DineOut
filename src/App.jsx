@@ -2,7 +2,6 @@ import './assets/App.css'
 import NavBar from './assets/Components/NavBar'
 import Login from './assets/Components/Login'
 import { useState } from 'react'
-import AdminDashboard from './assets/Components/admin-dashboard/AdminDashboard'
 import Features from './assets/Components/Features'
 
 function App() {
