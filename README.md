@@ -139,6 +139,7 @@ npm run build
 - Port conflicts: Check terminal for alternate port
 - Runtime errors: Try disabling browser extensions
 - Image upload issues: Check file size and type
+- Image uploaded in imagekit.io
 
 ---
 
