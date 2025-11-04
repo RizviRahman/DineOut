@@ -135,24 +135,6 @@ const monthlyData = [
 ];
 
 
-// Calculates revenue for a given month using item prices and monthly item counts
-const calculateRevenue = (items, monthlyData, month) => {
-  // Build a map for quick price lookup
-  const priceMap = {};
-  items.forEach(item => {
-    priceMap[item.name] = item.price;
-  });
-
-  const monthObj = monthlyData.find(m => m.month === month);
-  if (!monthObj) return 0;
-
-  const revenue = monthObj.items.reduce((sum, it) => {
-    const price = priceMap[it.name] || 0;
-    return sum + price * it.count;
-  }, 0);
-  return revenue;
-};
 
 
-
-export {items, orders_data, monthlyData, calculateRevenue};
+export {items, orders_data, monthlyData};
