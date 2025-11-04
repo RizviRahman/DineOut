@@ -53,8 +53,9 @@ export default function CreateOrder({items, addOrder}) {
                 <div className="mb-4">
                     <label className="block text-sm font-medium mb-2">Choose Items</label>
                     <div className="items-container">
-                        {items.map((item) => (
-                            <Item key={`${item.id}-${resetToken}`} item={item} calculateTotal={calculateTotal} />
+                        {items && Array.isArray(items) && items.map((item) => (
+                            console.log("Rendering Item:", item),
+                            <Item key={`${item._id}-${resetToken}`} item={item} calculateTotal={calculateTotal} />
                         ))}
                     </div>
                 </div>

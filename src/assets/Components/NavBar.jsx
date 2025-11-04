@@ -10,7 +10,7 @@ export default function NavBar({ user, onLogout }) {
             
         {user ? (
             <div className="flex items-center gap-4">
-                <div className="text-sm text-gray-300">{user.username} ({user.role})</div>
+                <div className="text-sm text-gray-300">{user.name || user.username || user.email} {user.role ? `(${user.role})` : ''}</div>
                 <button onClick={onLogout} className="bg-gray-800 text-xs px-3 py-1 rounded">Logout</button>
             </div>
         ) : null}

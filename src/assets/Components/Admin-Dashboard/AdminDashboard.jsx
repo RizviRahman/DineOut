@@ -1,10 +1,13 @@
-import { useState } from 'react';
+import { useState, useReducer } from 'react';
 import './admin-dashboard.css';
 import AdminHeader from './admin-components/AdminHeader';
 import RevenueChart from './admin-components/RevenueChart';
 import ItemFrequencyChart from './admin-components/ItemFrequencyChart';
 import ItemForm from './admin-components/ItemForm';
 import ModeratorForm from './admin-components/ModeratorForm';
+import itemReducer from './admin-components/itemReducer';
+
+
 
 
 const initialMods = [
@@ -14,13 +17,18 @@ const initialMods = [
 // Monthly revenue and item frequency data
 
 
-export default function AdminDashboard({monthlyData, initialItems}) {
-  // State for forms and selection
-  const [items, setItems] = useState(initialItems);
+export default function AdminDashboard({db_items, monthlyData, initialItems}) {
+  // State for items using reducer
+  const [state, dispatch] = useReducer(itemReducer, {
+    items: initialItems,
+    itemForm: { id: null, name: '', price: '', image: '' }
+  });
+  
+  // Other state
   const [mods, setMods] = useState(initialMods);
-  const [itemForm, setItemForm] = useState({ id: null, name: '', price: '' });
   const [modForm, setModForm] = useState({ id: null, username: '', role: 'moderator', password: '' });
   const [selectedMonth, setSelectedMonth] = useState(null);
+
 
   // Current month data for frequency chart
   const currentMonthData = monthlyData[selectedMonth !== null ? selectedMonth : new Date().getMonth()];
@@ -29,24 +37,52 @@ export default function AdminDashboard({monthlyData, initialItems}) {
   const totalRevenue = monthlyData.reduce((a, b) => a + b.revenue, 0);
   const summary = [
     { label: 'Monthly Revenue', value: `৳ ${(totalRevenue / monthlyData.length).toLocaleString()}` },
-    { label: 'Total Items', value: items.length },
+    { label: 'Total Items', value: state.items.length },
     { label: 'Moderators', value: mods.length }
   ];
+
+
+
 
   // Item form handlers
   function handleItemSubmit(e) {
     e.preventDefault();
-    if (!itemForm.name.trim() || !itemForm.price) return;
-    if (itemForm.id) {
-      setItems(items.map(it => it.id === itemForm.id ? { ...it, name: itemForm.name, price: Number(itemForm.price) } : it));
+    if (!state.itemForm.name.trim() || !state.itemForm.price) return;
+    
+    if (state.itemForm.id) {
+      dispatch({
+        type: ACTIONS.UPDATE_ITEM,
+        payload: {
+          id: state.itemForm.id,
+          name: state.itemForm.name,
+          price: Number(state.itemForm.price),
+          image: state.itemForm.image
+        }
+      });
     } else {
-      const id = Math.max(0, ...items.map(i => i.id)) + 1;
-      setItems([...items, { id, name: itemForm.name, price: Number(itemForm.price) }]);
+      const id = Math.max(0, ...state.items.map(i => i.id)) + 1;
+      dispatch({
+        type: ACTIONS.ADD_ITEM,
+        payload: {
+          id,
+          name: state.itemForm.name,
+          price: Number(state.itemForm.price),
+          image: state.itemForm.image
+        }
+      });
     }
-    setItemForm({ id: null, name: '', price: '' });
   }
-  function editItem(it) { setItemForm({ id: it.id, name: it.name, price: it.price }); }
-  function removeItem(id) { setItems(items.filter(i => i.id !== id)); }
+  
+  function editItem(it) {
+    dispatch({
+      type: ACTIONS.SET_ITEM_FORM,
+      payload: { id: it.id, name: it.name, price: it.price, image: it.image }
+    });
+  }
+  
+  function removeItem(id) {
+    dispatch({ type: ACTIONS.REMOVE_ITEM, payload: id });
+  }
 
   // Moderator form handlers
   function handleModSubmit(e) {
@@ -85,10 +121,11 @@ export default function AdminDashboard({monthlyData, initialItems}) {
         <aside className="space-y-6">
           {/* Item and moderator forms */}
           <ItemForm
-            itemForm={itemForm}
-            setItemForm={setItemForm}
+            db_items={db_items}
+            itemForm={state.itemForm}
+            setItemForm={(form) => dispatch({ type: ACTIONS.SET_ITEM_FORM, payload: form })}
             onSubmit={handleItemSubmit}
-            items={items}
+            items={state.items}
             onEdit={editItem}
             onRemove={removeItem}
           />

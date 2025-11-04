@@ -1,82 +1,145 @@
 # DineOut
 
-DineOut is a small React + Vite demo application that simulates a restaurant order management dashboard. It provides a themed UI to create orders, view order summaries, and manage orders (deliver/delete). A simple client-side login allows moderator/admin users to access the dashboard.
+DineOut is a React + Vite application for restaurant management with role-based access. It features an interactive menu carousel, order management system, and an admin dashboard with revenue analytics. The app uses a themed glass-card UI design throughout.
 
-This README explains the project structure, features, and how to run the app locally.
+This README explains the project features, structure, and setup instructions.
 
 ## Features
-- Create Order: enter customer name, pick items and quantities, place an order.
-- Orders: view existing orders, mark as Delivered, delete orders.
-- Order Summary: total / pending / delivered counters.
-- Order Reports: table view with filter (All / Pending / Delivered).
-- Client-side Dashboard: login form (moderator/admin) and logout — purely client-side for demo purposes.
 
-## Tech stack
-- React 19
-- Vite (dev server & build)
-- Plain CSS + small utility classes (project styles in `src/index.css` and `src/assets/App.css`)
+### Authentication & UI
+- Interactive 3D rotating menu carousel on the login page
+- Role-based access (Admin/Moderator)
+- Glass-card themed UI components
+- Responsive navbar with user context
 
-## Project structure (important files)
-- `index.html` — app entry
-- `package.json` — manifest & scripts
-- `src/`
-	- `main.jsx` — React bootstrap
-	- `App.jsx` — top-level layout & simple auth routing
-	- `index.css` and `assets/App.css` — styles
-	- `assets/Components/` — UI components (NavBar, Features, CreateOrder, Orders, Reports, etc.)
-	- `assets/Components/data.js` — sample items and initial orders
+### Admin Dashboard
+- Monthly Revenue Chart with hover details
+- Item Frequency Chart (click month to update)
+- Item Management:
+  - Add/Edit items with name, price, and image
+  - Image upload with preview
+  - Item list with thumbnails
+- Moderator Management:
+  - Add/Edit moderators
+  - Role assignment (admin/moderator)
 
-## Local development
-These steps assume you have Node.js (16+) and Git installed.
+### Order Management
+- Create Orders:
+  - Customer information
+  - Item selection with quantities
+  - Real-time total calculation
+- Order Tracking:
+  - Order summary (total/pending/delivered)
+  - Filterable order reports
+  - Status updates (mark as delivered)
+  - Order deletion
 
-1. Clone the repository
+## Tech Stack
+- Frontend:
+  - React 19
+  - Vite (dev server & build)
+  - CSS3 with Glassmorphism design
+  - SVG Charts (Revenue & Frequency)
 
-```powershell
+## Project Structure
+```
+src/
+├── main.jsx           # React bootstrap
+├── App.jsx           # Root component with auth
+├── index.css         # Global styles
+├── assets/
+│   ├── App.css      # Main app styles
+│   └── Components/
+│       ├── NavBar.jsx
+│       ├── Login.jsx         # Login with 3D carousel
+│       ├── Features.jsx      # Routes to Admin/Moderator views
+│       ├── data.js          # Sample data (items, orders, revenue)
+│       ├── admin-dashboard/  # Admin components
+│       │   ├── AdminDashboard.jsx
+│       │   ├── admin-dashboard.css
+│       │   └── admin-components/
+│       │       ├── AdminHeader.jsx
+│       │       ├── RevenueChart.jsx
+│       │       ├── ItemFrequencyChart.jsx
+│       │       ├── ItemForm.jsx
+│       │       └── ModeratorForm.jsx
+│       └── order-manager/    # Order management
+           ├── OrderManager.jsx
+           └── order-components/
+               ├── CreateOrder.jsx
+               ├── Orders.jsx
+               └── Reports.jsx
+```
+
+## Local Development
+Prerequisites: Node.js (16+) and Git
+
+1. Clone the repository:
+```bash
 git clone https://github.com/RizviRahman/DineOut.git
 cd DineOut
 ```
 
-2. Install dependencies
-
-```powershell
+2. Install dependencies:
+```bash
 npm install
 ```
 
-3. Start dev server
-
-```powershell
+3. Start development server:
+```bash
 npm run dev
 ```
 
-Open the URL printed by Vite (e.g. `http://localhost:5173/`) in your browser.
-
-4. Build for production
-
-```powershell
+4. Build for production:
+```bash
 npm run build
 ```
 
-5. Preview the production build
+## Usage Guide
 
-```powershell
-npm run preview
-```
+### Authentication
+- Open the app and see the 3D rotating menu carousel
+- Enter username and select role (moderator/admin)
+- Click Sign in to access your dashboard
+- Use the Logout button in navbar to exit
 
-## Dashboard / Login
-- The app now includes a simple client-side login form. It is intentionally minimal for demo purposes and does NOT authenticate against a backend.
-- To use it:
-	- Open the app, enter a username and choose role (moderator or admin), then click Sign in.
-	- After signing in you'll land on the Dashboard (same theme), which contains the Create Order section and the Orders/Reports.
-	- Use the Logout button in the NavBar to sign out.
+### Admin Dashboard
+- View monthly revenue in the bar chart
+- Hover over bars to see exact amounts
+- Click a month to update the item frequency chart
+- Use the forms on the right to:
+  - Add/edit menu items with images
+  - Manage moderator accounts
 
-## Notes & suggestions
-- Data persistence: orders live in-memory and reset on refresh — consider adding localStorage or a backend API for persistence.
-- Controlled state: for larger apps, lift item quantities to parent state or use a store.
-- Tests & CI: consider adding unit tests and a GitHub Actions workflow for continuous checks.
+### Order Management (Moderator)
+- Create orders:
+  1. Enter customer name
+  2. Select items and quantities
+  3. Click "Place Order"
+- View orders:
+  - See order summaries
+  - Filter by status
+  - Mark orders as delivered
+  - Delete orders if needed
+
+## Planned Features
+- Backend API (Node.js + Express)
+- MongoDB integration for data persistence
+- JWT authentication
+- Image upload to cloud storage
+- Real-time order updates
+
+## Development Notes
+- State Management: Currently using React's useState; consider Redux/Context for scaling
+- Data Persistence: Currently in-memory; planned backend integration
+- Image Handling: Local preview with FileReader; plan to add cloud storage
+- Authentication: Simple role-based demo; JWT implementation planned
 
 ## Troubleshooting
-- If Vite reports port in use, it will try another port; check terminal output for the active URL.
-- If you see runtime errors referring to `chrome-extension://...`, try disabling browser extensions to confirm whether the error originates from an extension.
+- Port conflicts: Check terminal for alternate port
+- Runtime errors: Try disabling browser extensions
+- Image upload issues: Check file size and type
+- Image uploaded in imagekit.io
 
 ---
 
