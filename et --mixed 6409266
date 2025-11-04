@@ -1,0 +1,15 @@
+[33mcd778d9[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m api-client introduced
+[33m549568b[m redme file updated
+[33m6409266[m folder and coding structure redefined
+[33ma984b63[m folder and coding structure redefined
+[33me05603f[m Admin dashboard added
+[33md253b4b[m Redme file updated with correct GitHub repository link.
+[33m4abfbff[m login page design modified
+[33m12d1f0b[m login page added
+[33m2dea3ee[m filter functionality added to Reports component
+[33m2e4d968[m fix: clear CreateOrder form after submission
+[33m2a34983[m Added interactivity in Reports component & completed CreateOrder functionality
+[33mf7e4b51[m Added interactivity in Orders component
+[33m996d404[m Added Item component with interactivity
+[33m2170bb5[m Initialized project scaffold with all features
+[33m240cdb2[m first commit

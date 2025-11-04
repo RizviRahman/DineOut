@@ -1,0 +1,63 @@
+.order-manager {
+  @apply container mx-auto px-4;
+}
+
+.card {
+  @apply bg-cardbg rounded-lg p-4;
+
+  &__header {
+    @apply flex justify-between items-start mb-4;
+  }
+
+  &__title {
+    @apply font-bold;
+  }
+
+  &__subtitle {
+    @apply text-sm text-gray-400;
+  }
+
+  &__status {
+    @apply px-3 py-1 rounded-full text-sm;
+
+    &--pending {
+      @apply bg-yellow-800 bg-opacity-50 text-yellow-200;
+    }
+
+    &--delivered {
+      @apply bg-green-800 bg-opacity-50 text-green-200;
+    }
+  }
+
+  &__content {
+    @apply space-y-2 mb-4;
+  }
+
+  &__item {
+    @apply flex justify-between text-sm;
+  }
+
+  &__total {
+    @apply border-t border-gray-700 pt-2 flex justify-between font-bold;
+  }
+
+  &__actions {
+    @apply flex gap-2;
+  }
+}
+
+.btn {
+  @apply flex-1 text-white py-2 rounded hover:opacity-90;
+
+  &--deliver {
+    @apply bg-gradient-to-r from-green-600 to-green-700;
+  }
+
+  &--delete {
+    @apply bg-gradient-to-r from-red-600 to-red-700;
+  }
+}
+
+.input {
+  @apply bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:border-purple-500;
+}
