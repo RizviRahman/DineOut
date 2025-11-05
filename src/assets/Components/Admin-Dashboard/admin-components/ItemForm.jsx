@@ -62,6 +62,5 @@ export default function ItemForm({ itemForm, setItemForm, onSubmit, items, onEdi
       </div>
     </div>
   )
-    </div>
-  );
+
 }
