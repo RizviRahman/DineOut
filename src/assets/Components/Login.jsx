@@ -43,7 +43,7 @@ export default function Login() {
         {/* Left: overlapping glass tiles (menu showcase) */}
         <div className="p-6 flex flex-col items-center">
           <h1 className="text-4xl font-bold mb-2"><span className="text-primary">Dine</span>Out</h1>
-          <p className="text-gray-400 mb-4">Explore our favorites — hover the tiles.</p>
+          <p className="text-gray-400 mb-4">Explore our favorites</p>
 
           <div className="carousel">
             <div className="ring" style={{'--count': items.length}}>
